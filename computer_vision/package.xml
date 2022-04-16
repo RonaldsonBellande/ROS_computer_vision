@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>stretch_deep_perception</name>
+  <name>computer_vision</name>
   <version>0.2.0</version>
   <description>The stretch_deep_perception package</description>
 
