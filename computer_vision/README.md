@@ -1,27 +1,17 @@
-![](../images/banner.png)
-
 ## Overview
 
-*stretch_deep_perception* provides demonstration code that uses open deep learning models to perceive the world. 
+*deep_perception* provides demonstration code that uses deep learning models to precieve the world using 2D, 3D computer vision systen and fusion of 2D and 3D computer vision system 
 
-This code depends on the stretch_deep_perception_models repository, which should be installed under ~/stretch_user/ on your Stretch RE1 robot.
-
-Link to the stretch_deep_perception_models repository:
-https://github.com/hello-robot/stretch_deep_perception_models
-
-## Getting Started Demos
-
-There are four demonstrations for you to try.
 
 ### Face Estimation Demo
 
 First, try running the face detection demonstration via the following command:
 
 ```
-roslaunch stretch_deep_perception stretch_detect_faces.launch 
+roslaunch deep_perception robot_detect_faces.launch 
 ```
 
-RViz should show you the robot, the point cloud from the camera, and information about detected faces. If it detects a face, it should show a 3D planar model of the face and 3D facial landmarks. These deep learning models come from OpenCV and the Open Model Zoo (https://github.com/opencv/open_model_zoo).
+RViz should show you the robot, the point cloud from the camera, and information about detected faces. If it detects a face, it should show a 3D planar model of the face and 3D facial landmarks. Deep Learning models comes from build in models and will use other research models.
 
 You can use the keyboard_teleop commands within the terminal that you ran roslaunch in order to move the robot's head around to see your face.
 
@@ -36,17 +26,13 @@ j (pan left)               l (pan right)
 
 Pan left and pan right are in terms of the robot's left and the robot's right.
 
-Now shut down everything that was launched by pressing q and Ctrl-C in the terminal.
-
 ### Object Detection Demo
 
-Second, try running the object detection demo, which uses the tiny YOLO v3 object detection network (https://pjreddie.com/darknet/yolo/). RViz will display planar detection regions. Detection class labels will be printed to the terminal. 
+Second, which uses the tiny YOLO v3 object detection network (https://pjreddie.com/darknet/yolo/). RViz will display planar detection regions. Created models with be use for object detection with 2D and 3D Computer vision.
 
 ```
-roslaunch stretch_deep_perception stretch_detect_objects.launch
+roslaunch deep_perception robot_detect_objects.launch
 ```
-
-Once you're ready for the next demo, shut down everything that was launched by pressing q and Ctrl-C in the terminal.
 
 ### Body Landmark Detection Demo
 
@@ -54,10 +40,8 @@ Third, try running the body landmark point detection demo. The deep learning mod
 
 
 ```
-roslaunch stretch_deep_perception stretch_detect_body_landmarks.launch 
+roslaunch deep_perception robot_detect_body_landmarks.launch 
 ```
-
-Once you're ready for the next demo, shut down everything that was launched by pressing q and Ctrl-C in the terminal.
 
 ### Nearest Mouth Detection Demo
 
@@ -69,7 +53,7 @@ A less risky use of this detection is for object delivery. stretch_demos has a d
 
 
 ```
-roslaunch stretch_deep_perception stretch_detect_nearest_mouth.launch 
+roslaunch deep_perception robot_detect_nearest_mouth.launch 
 ```
 
 ## References
