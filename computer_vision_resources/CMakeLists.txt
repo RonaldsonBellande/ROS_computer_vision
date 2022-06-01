@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(computer_vision)
+project(computer_vision_resources)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -20,7 +20,6 @@ find_package(
   std_srvs
   tf
   tf2
-  computer_vision_resources
 )
 
 ## System dependencies are found with CMake's conventions
