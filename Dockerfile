@@ -4,12 +4,12 @@ SHELL [ "/bin/bash" , "-c" ]
 ENV DEBIAN_FRONTEND noninteractive
 ENV PYTHON_VERSION="3.8"
 
-ARG ML_ARCHITECTURE_VERSION_GIT_BRANCH=master
-ARG ML_ARCHITECTURE_VERSION_GIT_COMMIT=HEAD
+ARG ROS_ARCHITECTURE_VERSION_GIT_BRANCH=master
+ARG ROS_ARCHITECTURE_VERSION_GIT_COMMIT=HEAD
 
 LABEL maintainer=ronaldsonbellande@gmail.com
-LABEL ml_architecture_github_branchtag=${ML_ARCHITECTURE_VERSION_GIT_BRANCH}
-LABEL ml_architecture_github_commit=${ML_ARCHITECTURE_VERSION_GIT_COMMIT}
+LABEL ROS_architecture_github_branchtag=${ROS_ARCHITECTURE_VERSION_GIT_BRANCH}
+LABEL ROS_architecture_github_commit=${ROS_ARCHITECTURE_VERSION_GIT_COMMIT}
 
 # Ubuntu setup
 RUN apt-get update -y
@@ -49,10 +49,15 @@ RUN mkdir -p $CATKIN_WS/src
 WORKDIR $CATKIN_WS/src
 
 # Initialize local catkin workspace, install dependencies and build workpsace
-RUN source /opt/ros/noetic/setup.bash \
-  && cd $CATKIN_WS \
-  && rosdep install -y --from-paths . --ignore-src --rosdistro noetic \
-  && catkin build
+RUN echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+RUN source ~/.bashrc
+
+RUN cd $CATKIN_WS \
+  && rosdep init \
+  && rosdep update \
+  && rosdep update --rosdistro noetic \
+  && rosdep fix-permissions \
+  && rosdep install -y --from-paths . --ignore-src --rosdistro noetic
 
 # Always source catkin_setup.sh when launching bash 
 RUN echo "source /usr/local/bin/catkin_setup.sh" >> /root/.bashrc

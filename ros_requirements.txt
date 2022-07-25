@@ -11,3 +11,5 @@ python-catkin-tools
 ros-noetic-pcl-ros
 ros-noetic-flexbe-behavior-engine
 ros-noetic-moveit
+ros-noetic-gazebo-ros-pkgs 
+ros-noetic-gazebo-ros-control
