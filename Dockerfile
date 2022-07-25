@@ -1,3 +1,5 @@
+ARG ROS_ARCHITECTURE_VERSION=latest
+
 FROM ubuntu:20.04 as base_build
 SHELL [ "/bin/bash" , "-c" ]
 
